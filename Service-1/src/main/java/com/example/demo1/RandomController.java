@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class Controller {
-    @GetMapping("/hello")
+public class RandomController {
+
+    @GetMapping("/random")
     public Map<String, String> greeting(){
         Map<String, String> map = new HashMap<>();
         map.put("number", "124");
