@@ -39,4 +39,5 @@ jobs:
           key: v1-dependencies-{{ checksum "Service-1/build.gradle" }}
 
       # run tests!
-      - run: gradle src/test
+      # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
+      - run: gradle testTheApp

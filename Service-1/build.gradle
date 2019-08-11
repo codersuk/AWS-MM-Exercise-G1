@@ -17,3 +17,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-web-test'
 }
+
+testTheApp {
+   // enable TestNG support (default is JUnit)
+   useTestNG()
+   // enable JUnit Platform (a.k.a. JUnit 5) support
+   useJUnitPlatform()
+}
