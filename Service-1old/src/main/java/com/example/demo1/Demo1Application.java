@@ -8,10 +8,11 @@ public class Demo1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Demo1Application.class, args);
-		String t = "test";
-		System.out.println(t);
 	}
 
 
+	double rand = Math.random();
 
+	// Output is different everytime this code is executed
+        System.out.println("Random Number:" + rand);
 }
