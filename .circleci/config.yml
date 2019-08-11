@@ -41,4 +41,3 @@ jobs:
       # run tests!
       # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
       - run: gradle test
-gr
