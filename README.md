@@ -30,4 +30,12 @@ Service-3: not implemented
 
 ## Known issues
 
+- Gradle cannot fond 'test' Task
+  Error description: Task 'test' not found in root project 'repo'.
+  Temporary hack: coomment out gradle test step in CircleCI config.
 
+  Try to use custom test command.
+  run gradlew from inside Service-1 folder locally works:
+  > PS D:\Programming\AWS\aws-session-0811-G1> .\Service-1\gradlew.bat
+
+  Reporter: Alex
