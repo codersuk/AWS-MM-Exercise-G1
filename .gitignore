@@ -8,3 +8,5 @@ Service-1/bin/
 *.bin
 
 \.gradle/buildOutputCleanup/
+
+.idea/
