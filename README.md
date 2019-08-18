@@ -2,7 +2,7 @@
 
 We need to create 3 branches (one for each service).
 
-## Goals
+## GOALS
 
 - [X] (I) create CircleCI
 - [X] create a JAR file from the Service-1 Java project
@@ -12,6 +12,8 @@ We need to create 3 branches (one for each service).
 
 ## TODO
 
+- logging ([LogBack](https://logback.qos.ch) ?)
+- use a database (MongoDB cloud ?)
 
 ### Terraform
 
