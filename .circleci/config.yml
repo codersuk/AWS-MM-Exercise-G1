@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 3
 jobs:
   build:
     docker:
@@ -39,8 +39,17 @@ jobs:
           key: v1-dependencies-{{ checksum "Service-1/build.gradle" }}
 
       # run tests!
-      # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
+      - run:
+      # NOTE: because the gradle file are in the Service-1 folder "gradle test" simply does not work
       # - run: gradle test     Error: Task 'test' not found in root project ...
+          name: run unit tests
+          command: | 
+            ls
+            cd Service-1 
+            gradle createJar
+      
+      # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
+      
 
       #- run:
       #    name: Run tests in parallel # See: https://circleci.com/docs/2.0/parallelism-faster-jobs/
@@ -58,15 +67,13 @@ jobs:
       #      #echo "Prepared arguments for Gradle: $GRADLE_ARGS"
       #      # ./gradlew test $GRADLE_ARGS
       #      cd ~/Service-1
-      #      ./gradlew test
+      #      ./gradlew test    
 
 
       # create JAR file
-      # - run: gradle createJar
-      - run: ls  # to see where we are
-
       - run: 
           name: create JAR
           command: |
-            cd Service-1  # assume we are in root because tht what "ls" is showing
+            ls
+            cd Service-1 
             gradle createJar
