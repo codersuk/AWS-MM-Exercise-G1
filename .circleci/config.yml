@@ -44,36 +44,12 @@ jobs:
       # - run: gradle test     Error: Task 'test' not found in root project ...
           name: run unit tests
           command: | 
-            ls
             cd Service-1 
-            gradle createJar
-      
-      # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
-      
-
-      #- run:
-      #    name: Run tests in parallel # See: https://circleci.com/docs/2.0/parallelism-faster-jobs/
-      #    # Use "./gradlew test" instead if tests are not run in parallel
-      #    command: |
-      #      cd ~/Service-1/src/test/java
-      #      # Get list of classnames of tests that should run on this node
-      #     CLASSNAMES=$(circleci tests glob "**/*.java" \
-      #        | cut -c 1- | sed 's@/@.@g' \
-      #        | sed 's/.\{5\}$//' \
-      #        | circleci tests split --split-by=timings --timings-type=classname)
-      #      cd ../../..
-      #      # Format the arguments to "./gradlew test"
-      #      #GRADLE_ARGS=$(echo $CLASSNAMES | awk '{for (i=1; i<=NF; i++) print "--tests",$i}')
-      #      #echo "Prepared arguments for Gradle: $GRADLE_ARGS"
-      #      # ./gradlew test $GRADLE_ARGS
-      #      cd ~/Service-1
-      #      ./gradlew test    
-
+            gradle test 
 
       # create JAR file
       - run: 
           name: create JAR
           command: |
-            ls
             cd Service-1 
             gradle createJar
