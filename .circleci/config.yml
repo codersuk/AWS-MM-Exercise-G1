@@ -62,10 +62,11 @@ jobs:
 
 
       # create JAR file
-      # - run: "Service-1/gradle" createJar
+      # - run: gradle createJar
       - run: ls  # to see where we are
 
       - run: 
+          name: create JAR
           command: |
             cd ~/Service-1
-            ./gradlew createJar
+            gradle createJar
