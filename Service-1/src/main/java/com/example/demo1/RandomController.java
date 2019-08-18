@@ -9,18 +9,12 @@ import java.util.Map;
 @RestController
 public class RandomController {
 
+    /// returns a random number between 0 and 1000
     @GetMapping("/random")
-    public Map<String, Object> greeting(){
+    public Map<String, Object> greeting() {
         Map<String, Object> map = new HashMap<>();
-
-        int randomValue = createRandom(0, 1000);
-
+        int randomValue = RandomNumberGenerator.generateNumber(1000);
         map.put("number", randomValue);
         return map;
-    }
-
-    private int createRandom(int min, int max) {
-        int randomInt = (int)(max * Math.random());
-        return randomInt;
     }
 }
