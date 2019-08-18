@@ -62,4 +62,4 @@ jobs:
 
 
       # create JAR file
-      - run: ../gradle createJar
+      - run: "Service-1/gradle" createJar
