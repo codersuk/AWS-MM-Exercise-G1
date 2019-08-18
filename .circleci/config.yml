@@ -40,7 +40,7 @@ jobs:
 
       # run tests!
       # https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html
-      #- run: gradle test     Error: Task 'test' not found in root project ...
+      # - run: gradle test     Error: Task 'test' not found in root project ...
 
       #- run:
       #    name: Run tests in parallel # See: https://circleci.com/docs/2.0/parallelism-faster-jobs/
@@ -62,4 +62,5 @@ jobs:
 
 
       # create JAR file
-      - run: ../gradle createJar
+      # - run: "Service-1/gradle" createJar
+      - run: ls
