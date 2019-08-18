@@ -1,2 +1,10 @@
 
 Service-1/bin/
+
+\.gradle/5\.4\.1/executionHistory/
+
+\.gradle/5\.4\.1/fileHashes/
+
+*.bin
+
+\.gradle/buildOutputCleanup/
