@@ -59,3 +59,7 @@ jobs:
       #      # ./gradlew test $GRADLE_ARGS
       #      cd ~/Service-1
       #      ./gradlew test
+
+
+      # create JAR file
+      - run: ../gradle createJar

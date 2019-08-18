@@ -24,3 +24,15 @@ test {
    // enable JUnit Platform (a.k.a. JUnit 5) support
    useJUnitPlatform()
 }
+
+// create a single Jar with all dependencies
+task createJar(type: Jar) {
+	manifest {
+	attributes 'Implementation-Title': 'Gradle Jar File for Service-1',  
+	'Implementation-Version': version,
+	'Main-Class': 'com.example.demo1'
+}
+baseName = project.name + '-all'
+from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+with jar
+}
