@@ -1,12 +1,14 @@
-
-Service-1/bin/
-
 \.gradle/5\.4\.1/executionHistory/
-
 \.gradle/5\.4\.1/fileHashes/
-
-*.bin
-
 \.gradle/buildOutputCleanup/
 
-.idea/
+*.bin
+Service-1/bin/*
+
+# IntelliJ configuration
+.idea/ 
+
+# ouptput compiled services folder
+**/publish/*
+
+
