@@ -12,7 +12,7 @@ public class RandomController {
     @GetMapping("/random")
     public Map<String, String> greeting(){
         Map<String, String> map = new HashMap<>();
-        map.put("number", "124");
+        map.put("number", "12456");
         return map;
     }
 }
