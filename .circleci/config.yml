@@ -60,3 +60,6 @@ jobs:
       #      cd ~/Service-1
       #      ./gradlew test
 
+
+      # create JAR file
+      - run: gradle fatJar 
