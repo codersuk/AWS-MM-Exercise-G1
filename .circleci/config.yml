@@ -45,7 +45,7 @@ jobs:
           name: run unit tests
           command: | 
             cd Service-1 
-            gradle createJar 
+            gradle test 
 
       # create JAR file
       - run: 
