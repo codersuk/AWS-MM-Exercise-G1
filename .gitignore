@@ -14,3 +14,5 @@ Service-1/bin/*
 
 
 .vscode/
+
+Service-2/src/__pycache__/
