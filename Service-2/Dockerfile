@@ -1,14 +1,14 @@
-FROM alpine:latest
+FROM alpine:3.10
 
 # Small. Simple. Secure. Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 # 4 Mb!
 # Ubuntu use apk
 
 # install Python 3 and pip (python3-dev contains Python 3 and pip) and update pip 
-RUN apk --no-cache python3-dev \  
+RUN apk add --no-cache python3-dev \  
     && pip3 install --upgrade pip
 
-COPY . /app
+COPY ./src /app
 
 WORKDIR /app
 
@@ -22,6 +22,7 @@ EXPOSE 5000
 # try this: ENTRYPOINT [ "python app.py", "app.py" ] 
 
 # the command
-ENTRYPOINT "python" 
+ENTRYPOINT ["python3"] 
+CMD ["app.py"]
 # the parameters to pass to it
-CMD [ "app.py" ]
+#CMD python3 app.py
