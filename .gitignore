@@ -12,3 +12,7 @@ Service-1/bin/*
 **/publish/*
 
 
+
+.vscode/
+
+Service-2/src/__pycache__/

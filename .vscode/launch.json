@@ -1,8 +1,25 @@
 {
     "configurations": [
         {
+            "name": "Launch Service-2 (Python)",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "${workspaceFolder}/Service-2/src/app.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "0"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true
+        },
+        {
             "type": "java",
-            "name": "Launch main",
+            "name": "Launch Service-1 (Java)",
             "request": "launch",
             "mainClass": "com.example.demo1.ServiceOneApplication"
         }
