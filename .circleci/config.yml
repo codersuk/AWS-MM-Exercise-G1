@@ -71,7 +71,7 @@ jobs:
       # create the Docker images
       - run: 
           name: create Docker images
-          comamnd: | 
+          command: | 
             docker-compose up -d
 
 workflows:
