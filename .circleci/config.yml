@@ -53,6 +53,17 @@ jobs:
           command: |
             cd Service-1 
             gradle createJar
+            mkdir -p /tmp/workspace/service-1
+            #cp Service-1/publish/demo1-all-0.0.1-LATEST.jar > /workspace/service-1
+            cp Service-1/publish/demo1-all-0.0.1-LATEST.jar > /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
+      
+      # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
+      persist_to_workspace :
+          root: /tmp/workspace/service-1
+          paths:
+            - demo1-all-0.0.1-LATEST.jar
+            
+          #destination: artifact-file
     
       
   Prepare-Docker-Images:
@@ -61,13 +72,17 @@ jobs:
       - checkout
       # - setup_remote_docker  Error: (setup_remote_docker): This step isn't compatible with machine executor. You can use Docker without a special step if the build image has it installed.
 
-      #Docker-Compose is not here by default: https://circleci.com/docs/2.0/docker-compose/
       - run:
           name: Install Docker Compose
           command: |
             curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
+
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar /Service-1/publish/demo1-all-0.0.1-LATEST.jar
+
 
       # create the Docker images
       - run: 
