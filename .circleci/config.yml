@@ -58,7 +58,7 @@ jobs:
   Prepare-Docker-Images:
     machine: true # Use a Linux VM instead of docker environment (so volumes work)
     steps:
-      - setup_remote_docker  Error: (setup_remote_docker): This step isn't compatible with machine executor. You can use Docker without a special step if the build image has it installed.
+      # - setup_remote_docker  Error: (setup_remote_docker): This step isn't compatible with machine executor. You can use Docker without a special step if the build image has it installed.
 
       #Docker-Compose is not here by default: https://circleci.com/docs/2.0/docker-compose/
       - run:
@@ -81,4 +81,4 @@ workflows:
       - Build-Service-One
       - Prepare-Docker-Images:
           requires:
-            - Build
+            - Build-Service-One
