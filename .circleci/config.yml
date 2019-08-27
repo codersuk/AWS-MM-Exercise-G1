@@ -4,7 +4,7 @@
 #
 version: 3
 jobs:
-  build:
+  Build:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -56,7 +56,7 @@ jobs:
             gradle createJar
     
       
-  create_images:
+  Prepare-Docker-Images:
     machine: true # Use a Linux VM instead of docker environment (so volumes work)
     steps:
       - setup_remote_docker
@@ -74,3 +74,12 @@ jobs:
           name: create Docker images (Docker Compose)
           comamnd: | 
             docker-compose up -d
+
+workflows:
+  version: 2
+  Do-It:
+    jobs:
+      - Build
+      - Prepare-Docker-Images
+          requires:
+            - Build
