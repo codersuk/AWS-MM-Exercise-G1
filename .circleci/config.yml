@@ -99,6 +99,10 @@ jobs:
             #echo where are we?
             #ls
             mkdir Service-1/publish
+            echo what we have in workspace?
+            ls /tmp
+            ls /tmp/worklspace
+            ls /tmp/workspace/service-1
             cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish
 
 
