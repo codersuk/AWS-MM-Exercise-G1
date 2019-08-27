@@ -49,7 +49,7 @@ task createJar(type: Jar) {
 	manifest {
 		attributes 'Implementation-Title': 'Gradle Jar File for Service-1',  
 		'Implementation-Version': version,
-		'Main-Class': 'com.example.demo1'
+		'Main-Class': 'com.example.demo1.ServiceOneApplication'
 	}
 	baseName = project.name + '-all'
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
