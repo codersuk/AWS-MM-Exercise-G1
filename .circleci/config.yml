@@ -41,10 +41,8 @@ jobs:
 
       # run tests!
       - run:
-      # NOTE: because the gradle file are in the Service-1 folder "gradle test" simply does not work
-      # - run: gradle test     Error: Task 'test' not found in root project ...
           name: run unit tests
-          command: Service-1/.gradle test 
+          command: cd Service-1 && gradle test # move into Service-1 and run gradle command
 
       # create JAR file
       - run: 
