@@ -96,11 +96,10 @@ jobs:
       - run:
           name: copy the JAR file into "publish" folder
           command: | 
-            echo where are we?
-            ls
-            mkdir Service-1
+            #echo where are we?
+            #ls
             mkdir Service-1/publish
-            cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish/
+            cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish
 
 
       # create the Docker images
