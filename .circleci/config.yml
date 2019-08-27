@@ -110,7 +110,8 @@ jobs:
           command: docker-compose up -d
 
   Publish-Docker-Images:
-    docker: alpine
+    docker: 
+      - image: alpine
     steps:
       - run: echo not implemented yet
 
