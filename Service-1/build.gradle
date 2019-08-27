@@ -54,7 +54,8 @@ task createJar(type: Jar) {
 	baseName = project.name + '-all'
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 	with jar
-	destinationDir = file("$rootDir/../publish/service-1")	
+	//destinationDir = file("$rootDir/../publish/service-1")	
+	destinationDir = file("$rootDir/publish/service-1")	
 	doLast { println("jar.destinationDir = " + destinationDir)}
 }
 

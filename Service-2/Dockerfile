@@ -1,5 +1,4 @@
-#FROM alpine:3.10
-FROM python:3-onbuild
+FROM alpine:3.10
 
 # Small. Simple. Secure. Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
 # 4 Mb!
@@ -8,12 +7,10 @@ FROM python:3-onbuild
 RUN apk add --no-cache python3-dev \  
     && pip3 install --upgrade pip
 
-COPY ./src usr/src/app
+COPY ./src /app/src
 
-WORKDIR usr/src/app
+RUN pip3 --no-cache-dir install -r /app/src/requirements.txt
 
-RUN pip3 --no-cache-dir install -r requirements.txt
+CMD python3 /app/src/app.py
 
 EXPOSE 5000
-
-CMD python3 app.py
