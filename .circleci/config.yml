@@ -58,4 +58,5 @@ jobs:
       # create the Docker images
       - run: 
           name: create Docker images (Docker Compose)
-          comamnd: docker-compose up -d
+          comamnd: | 
+            docker-compose up -d
