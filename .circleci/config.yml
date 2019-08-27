@@ -5,7 +5,6 @@
 version: 3
 jobs:
   build:
-    machine: true # Use a Linux VM instead of docker environment (so volumes work)
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -55,7 +54,13 @@ jobs:
           command: |
             cd Service-1 
             gradle createJar
-
+    
+      
+  crete_images:
+    machine: true # Use a Linux VM instead of docker environment (so volumes work)
+    - steps:
+      - setup_remote_docker
+           
       # Docker-Compose is not here by default: https://circleci.com/docs/2.0/docker-compose/
       #- run:
       #    name: Install Docker Compose
@@ -63,8 +68,6 @@ jobs:
       #      curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
       #      chmod +x ~/docker-compose
       #      sudo mv ~/docker-compose /usr/local/bin/docker-compose
-    
-      #- setup_remote_docker
 
       # create the Docker images
       - run: 
