@@ -55,9 +55,9 @@ jobs:
             gradle createJar
             mkdir -p /tmp/workspace/service-1
             #cp Service-1/publish/demo1-all-0.0.1-LATEST.jar > /workspace/service-1
-            println("ls Service-1:")
+            #println("ls Service-1:")
             ls Service-1
-            println("ls Service-1/publish:")
+            #println("ls Service-1/publish:")
             ls Service-1/publish
             cp Service-1/publish/demo1-all-0.0.1-LATEST.jar /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
       
