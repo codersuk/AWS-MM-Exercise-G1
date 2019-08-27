@@ -95,7 +95,7 @@ jobs:
           at: /tmp/workspace
       - run:
           name: copy the JAR file into "publish" folder
-          comamnd: | 
+          command: | 
             echo where are we?
             ls
             mkdir Service-1
