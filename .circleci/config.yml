@@ -5,6 +5,7 @@
 version: 3
 jobs:
   Build-Service-One:
+    parallelism: 4
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -100,10 +101,10 @@ jobs:
             #ls
             mkdir Service-1/publish
             echo what we have in workspace?
-            ls /tmp
+            #ls /tmp
             ls /tmp/workspace
-            ls /tmp/workspace/service-1
-            cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish
+            # why the JAR is not in "service-1" ??  /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
+            cp /tmp/workspace/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish
 
 
       # create the Docker images
