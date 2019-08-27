@@ -55,6 +55,16 @@ jobs:
             cd Service-1 
             gradle createJar
 
+      # Docker-Compose is not here by default: https://circleci.com/docs/2.0/docker-compose/
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+    
+      - setup_remote_docker
+
       # create the Docker images
       - run: 
           name: create Docker images (Docker Compose)
