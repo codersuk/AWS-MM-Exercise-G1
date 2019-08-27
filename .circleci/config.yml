@@ -52,17 +52,17 @@ jobs:
           name: create JAR
           command: |
             cd Service-1 
+            echo execute createJAR task
             gradle createJar
             echo JAR created
-            echo created in  
 
-            echo ls
-            ls
-            echo ------------
+            #echo ls
+            #ls
+            #echo ------------
 
-            echo ls publish
-            ls publish
-            echo ------------
+            #echo ls publish
+            #ls publish
+            #echo ------------
 
             echo "store the JAR in the workspace start..."
             mkdir -p /tmp/workspace/service-1
@@ -93,7 +93,14 @@ jobs:
 
       - attach_workspace:
           at: /tmp/workspace
-      - run: cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  /Service-1/publish/
+      - run:
+          name: copy the JAR file into "publish" folder
+          comamnd: | 
+            echo where are we?
+            ls
+            mkdir Service-1
+            mkdir Service-1/publish
+            cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish/
 
 
       # create the Docker images
