@@ -109,7 +109,7 @@ jobs:
           name: create Docker images
           command: docker-compose up -d
 
-  Create-Docker-Images:
+  Publish-Docker-Images:
     docker: alpine
     steps:
       - run: echo not implemented yet
