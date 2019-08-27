@@ -44,9 +44,7 @@ jobs:
       # NOTE: because the gradle file are in the Service-1 folder "gradle test" simply does not work
       # - run: gradle test     Error: Task 'test' not found in root project ...
           name: run unit tests
-          command: | 
-            cd Service-1 
-            gradle test 
+          command: Service-1/gradle test 
 
       # create JAR file
       - run: 
@@ -79,7 +77,7 @@ jobs:
           #destination: artifact-file
     
       
-  Prepare-Docker-Images:
+  Create-Docker-Images:
     machine: true # Use a Linux VM instead of docker environment (so volumes work)
     steps:
       - checkout
@@ -99,11 +97,11 @@ jobs:
           command: | 
             #echo where are we?
             #ls
-            mkdir Service-1/publish
-            echo what we have in workspace?
-            #ls /tmp
-            ls /tmp/workspace
+            
+            #echo what we have in workspace?
+            #ls /tmp/workspace
             # why the JAR is not in "service-1" ??  /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
+            mkdir Service-1/publish # we puth the JAR here
             cp /tmp/workspace/demo1-all-0.0.1-LATEST.jar Service-1/publish/demo1-all-0.0.1-LATEST.jar  
 
 
@@ -118,6 +116,9 @@ workflows:
   Do-It:
     jobs:
       - Build-Service-One
-      - Prepare-Docker-Images:
+      - Create-Docker-Images:
           requires:
             - Build-Service-One
+      - Publish-Docker-Images:
+          requires:
+            - Create-Docker-Images

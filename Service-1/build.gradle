@@ -58,8 +58,3 @@ task createJar(type: Jar) {
 	destinationDir = file("$rootDir/publish")	
 	doLast { println("jar.destinationDir = " + destinationDir) }
 }
-
-task alex_1 {
-	doFirst { println("alex 1 task start" )	}
-	doLast { println("alex 1 task end" ) }
-}
