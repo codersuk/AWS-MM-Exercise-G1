@@ -55,10 +55,10 @@ jobs:
             gradle createJar
             mkdir -p /tmp/workspace/service-1
             #cp Service-1/publish/demo1-all-0.0.1-LATEST.jar > /workspace/service-1
-            cp Service-1/publish/demo1-all-0.0.1-LATEST.jar > /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
+            cp Service-1/publish/demo1-all-0.0.1-LATEST.jar /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
       
       # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
-      persist_to_workspace :
+      - persist_to_workspace :
           root: /tmp/workspace/service-1
           paths:
             - demo1-all-0.0.1-LATEST.jar
@@ -81,7 +81,7 @@ jobs:
 
       - attach_workspace:
           at: /tmp/workspace
-      - run: cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar /Service-1/publish/demo1-all-0.0.1-LATEST.jar
+      - run: cp /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  /Service-1/publish/
 
 
       # create the Docker images
