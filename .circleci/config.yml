@@ -104,7 +104,7 @@ jobs:
             #ls /tmp
             ls /tmp/workspace
             # why the JAR is not in "service-1" ??  /tmp/workspace/service-1/demo1-all-0.0.1-LATEST.jar
-            cp /tmp/workspace/demo1-all-0.0.1-LATEST.jar demo1-all-0.0.1-LATEST.jar  Service-1/publish
+            cp /tmp/workspace/demo1-all-0.0.1-LATEST.jar Service-1/publish/demo1-all-0.0.1-LATEST.jar  
 
 
       # create the Docker images
